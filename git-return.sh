@@ -7,12 +7,12 @@ if [ -z "$branch_name" ]; then
 echo "Woops! no git repository found in `pwd`"
 exit
 fi
-read -p "Are you sure you want to delete '"$1"'? (y/n): " answer
+read -p "Are you sure you want to delete '"$branch_name"'? (y/n): " answer
 if [ "$answer" = "y" ]; then
   git checkout master;
   git pull;
   git branch --delete "$branch_name";
-  read -p "Delete '"$1"' from remote origin as well? (y/n): " delete_originy
+  read -p "Delete '"$branch_name"' from remote origin as well? (y/n): " delete_origin
     if [ "$delete_origin" = "y" ]; then
       git push origin --delete "$branch_name";
     fi
