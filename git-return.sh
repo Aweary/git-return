@@ -9,6 +9,7 @@ exit
 fi
 read -p "Are you sure you want to delete '"$branch_name"'? (y/n): " answer
 if [ "$answer" = "y" ]; then
+  git push;
   git checkout master;
   git pull;
   git branch --delete "$branch_name";
